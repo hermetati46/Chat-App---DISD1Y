@@ -1,17 +1,36 @@
 package com.poepart1;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Login auth = new Login();
+
+        System.out.println("Registration");
+        System.out.print("Enter First Name: ");
+        String fName = input.nextLine();
+        System.out.print("Enter Last Name: ");
+        String lName = input.nextLine();
+        System.out.print("Enter Username: ");
+        String user = input.nextLine();
+        System.out.print("Enter Password: ");
+        String pass = input.nextLine();
+        System.out.print("Enter Phone Number: ");
+        String phone = input.nextLine();
+
+        String regStatus = auth.registerUser(user, pass, fName, lName, phone);
+        System.out.println(regStatus);
+
+        if (regStatus.contains("successfully captured")) {
+            System.out.println("\n--- LOGIN ---");
+            System.out.print("Enter Username: ");
+            String loginUser = input.nextLine();
+            System.out.print("Enter Password: ");
+            String loginPass = input.nextLine();
+
+            boolean loginResult = auth.loginUser(loginUser, loginPass);
+            System.out.println(auth.returnLoginStatus(loginResult));
         }
     }
 }
