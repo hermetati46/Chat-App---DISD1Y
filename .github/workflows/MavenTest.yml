@@ -26,3 +26,27 @@ jobs:
 
       - name: Test
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+
+# name: Maven CI Test
+
+# on:
+#   push:
+#     branches: [ master ]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout Repository
+#       uses: actions/checkout@v4
+    
+#     - name: Set up JDK 17
+#       uses: actions/setup-java@v4
+#       with:
+#         java-version: '17'
+#         distribution: 'temurin'
+#         cache: maven
+    
+#     - name: Build and Test with Maven
+#       run: mvn -B test --file pom.xml
