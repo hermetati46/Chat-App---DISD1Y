@@ -26,7 +26,6 @@ public class Login {
         return phone.startsWith("+27") && phone.length() == 12 && phone.substring(1).matches("\\d+");
     }
 
-    // Registration logic returning formatted messages
     public String registerUser(String username, String password, String firstName, String lastName, String phone) {
         if (!checkUserName(username)) {
             return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
@@ -36,7 +35,6 @@ public class Login {
             return "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.";
         }
 
-        // Store values if validation passes
         this.username = username;
         this.password = password;
         this.firstName = firstName;
