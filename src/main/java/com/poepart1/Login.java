@@ -23,7 +23,7 @@ public class Login {
     }
 
     public boolean checkCellPhoneNumber(String phone) {
-        return phone.startsWith("+27") && phone.length() == 12 && phone.substring(1).matches("\\d+");
+        return phone != null && phone.startsWith("+27") && phone.length() == 12 && phone.substring(1).matches("\\d+");
     }
 
     public String registerUser(String username, String password, String firstName, String lastName, String phone) {
@@ -35,13 +35,17 @@ public class Login {
             return "Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.";
         }
 
+        if (!checkCellPhoneNumber(phone)) {
+            return "Phone number is not correctly formatted; please ensure it starts with +27 and contains 12 characters in total.";
+        }
+
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phone;
 
-        return "Username successfully captured.\nPassword successfully captured.";
+        return "Username successfully captured.\nPassword successfully captured.\nPhone number successfully captured.";
     }
 
     public boolean loginUser(String enteredUsername, String enteredPassword) {

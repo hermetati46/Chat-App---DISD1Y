@@ -28,12 +28,15 @@ public class LoginTest {
     }
 
     @Test
-    public void testPhoneNumberCorrect() {
-        assertTrue(login.checkCellPhoneNumber("+27838968976"));
-    }
+    public void testRegistrationMessaging() {
+        // Phone Success case
+        String success = login.registerUser("kyl_1", "Ch&&sec@ke99!", "John", "Doe", "+27838968976");
+        assertTrue(success.contains("Username successfully captured."));
+        assertTrue(success.contains("Password successfully captured."));
+        assertTrue(success.contains("Phone number successfully captured."));
 
-    @Test
-    public void testPhoneNumberIncorrect() {
-        assertFalse(login.checkCellPhoneNumber("08966553"));
+        // Phone failure case
+        String failPhone = login.registerUser("kyl_1", "Ch&&sec@ke99!", "John", "Doe", "0123456789");
+        assertEquals("Phone number is not correctly formatted; please ensure it starts with +27 and contains 12 characters in total.", failPhone);
     }
 }
