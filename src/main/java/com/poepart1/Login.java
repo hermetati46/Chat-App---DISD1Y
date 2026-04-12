@@ -45,7 +45,7 @@ public class Login {
         this.lastName = lastName;
         this.phoneNumber = phone;
 
-        return "Username successfully captured.\nPassword successfully captured.\nPhone number successfully captured.";
+        return "\nUsername successfully captured.\nPassword successfully captured.\nPhone number successfully captured.";
     }
 
     public boolean loginUser(String enteredUsername, String enteredPassword) {

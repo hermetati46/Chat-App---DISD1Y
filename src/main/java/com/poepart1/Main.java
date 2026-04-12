@@ -23,7 +23,7 @@ public class Main {
         System.out.println(regStatus);
 
         if (regStatus.contains("successfully captured")) {
-            System.out.println("\n--- LOGIN ---");
+            System.out.println("\nLOGIN");
             System.out.print("Enter Username: ");
             String loginUser = input.nextLine();
             System.out.print("Enter Password: ");
